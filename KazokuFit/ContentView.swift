@@ -10,13 +10,49 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView{
-            HStack{
-                Text("User's Name")
-                    .font(.system(size: 28))
+            VStack{
+                HStack{
+                    Text("User's Name")
+                        .font(.system(size: 28))
+                    Spacer()
+                    Image(systemName: "circle")
+                    // User's photo
+                }
+                VStack{
+                    Image(systemName: "globe")
+                }
+                .frame(minWidth: 400, minHeight: 300)
+                .background(.teal)
+                
+                Button("Scan In"){
+                    
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
+                .frame(width: 200, height: 300)
+                
+                
                 Spacer()
-                Image(systemName: "circle")
+                VStack{
+                    Button("Weights"){
+                        
+                    }
+                    .buttonStyle(.bordered)
+                    Button("Calisthenics"){
+                        
+                    }
+                    Button("Stretching"){
+                        
+                    }
+                    Button("Food"){
+                        
+                    }
+                }
+                .font(.callout)
+                .foregroundStyle(.black)
+                
+                .padding()
             }
-            .padding()
             
         }
         .padding()
