@@ -21,31 +21,40 @@ struct ContentView: View {
                 VStack{
                     Image(systemName: "globe")
                 }
-                .frame(minWidth: 400, minHeight: 300)
+                .frame(minWidth: 405, minHeight: 200)
                 .background(.teal)
                 
-                Button("Scan In"){
+                VStack{
+                    Button("Check In"){
+                        
+                    }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
                     
                 }
-                .buttonStyle(.bordered)
-                .buttonBorderShape(.capsule)
-                .frame(width: 200, height: 300)
+                .frame(minWidth: 405, minHeight: 200)
+ 
+                .border(.black)
                 
                 
                 Spacer()
                 VStack{
-                    Button("Weights"){
-                        
+                    HStack{
+                        Button("Weights"){
+                            
+                        }
+                        .buttonStyle(.bordered)
+                        Button("Calisthenics"){
+                            
+                        }
                     }
-                    .buttonStyle(.bordered)
-                    Button("Calisthenics"){
-                        
-                    }
-                    Button("Stretching"){
-                        
-                    }
-                    Button("Food"){
-                        
+                    HStack{
+                        Button("Stretching"){
+                            
+                        }
+                        Button("What to eat?"){
+                            
+                        }
                     }
                 }
                 .font(.callout)
