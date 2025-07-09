@@ -12,14 +12,18 @@ struct MainButtonSelectionView: View {
     var body: some View {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.blue)
-                    .frame(maxWidth: 120 , maxHeight: 120)
-                    .shadow(radius: 10, x: 2, y: 2)
+                    .fill(.light)
+                    .shadow(radius: 4, x: 3, y: -3)
   
-                Text(subjectSelected)
-                    .foregroundStyle(.secondary)
+                Button(subjectSelected){
+                    
+                }
+                .foregroundStyle(.secondary)
+                
             
         }
+            .frame(maxWidth: 120 , maxHeight: 120)
+            .padding(15)
     }
 }
 

@@ -21,7 +21,7 @@ struct ContentView: View {
                 VStack{
                     Image(systemName: "globe")
                 }
-                .frame(minWidth: 405, minHeight: 200)
+                .frame(minWidth: 400, minHeight: 200)
                 .background(.teal)
                 
                 VStack{
@@ -32,39 +32,36 @@ struct ContentView: View {
                     .buttonBorderShape(.capsule)
                     
                 }
-                .frame(minWidth: 405, minHeight: 200)
+                .frame(minWidth: 400, minHeight: 200)
  
                 .border(.black)
                 
                 
-                Spacer()
                 VStack{
                     HStack{
-                        Button("Weights"){
-                            
-                        }
-                        .buttonStyle(.bordered)
-                        Button("Calisthenics"){
-                            
-                        }
+                        
+                        MainButtonSelectionView(subjectSelected: "Weights")
+                        
+                        MainButtonSelectionView(subjectSelected: "Calisthenics")
                     }
+                    .padding()
                     HStack{
-                        Button("Stretching"){
-                            
-                        }
-                        Button("What to eat?"){
-                            
-                        }
+                        MainButtonSelectionView(subjectSelected: "Stretching")
+                        
+                        MainButtonSelectionView(subjectSelected: "What to eat?")
                     }
+                    .padding()
                 }
+                
                 .font(.callout)
                 .foregroundStyle(.black)
+                .border(.black)
+                .frame(width: 400, height: 400)
                 
-                .padding()
             }
             
         }
-        .padding()
+        
     }
 }
 
