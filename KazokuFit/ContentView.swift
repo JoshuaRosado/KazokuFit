@@ -18,6 +18,7 @@ struct ContentView: View {
                     Image(systemName: "circle")
                     // User's photo
                 }
+                .padding()
                 VStack{
                     Image(systemName: "globe")
                 }
@@ -28,11 +29,12 @@ struct ContentView: View {
                     Button("Check In"){
                         
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
+//                    .buttonStyle(.plain)
+                    .buttonBorderShape(.automatic)
+                    
                     
                 }
-                .frame(minWidth: 400, minHeight: 200)
+                .frame(minWidth: 400, minHeight: 100)
  
                 .border(.black)
                 
@@ -61,6 +63,7 @@ struct ContentView: View {
             }
             
         }
+        
         
     }
 }

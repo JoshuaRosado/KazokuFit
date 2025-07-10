@@ -13,7 +13,8 @@ struct MainButtonSelectionView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.light)
-                    .shadow(radius: 4, x: 3, y: -3)
+                    .shadow(color: Color(.blue) ,radius: 3, x: 2, y: -2)
+                    
   
                 Button(subjectSelected){
                     
