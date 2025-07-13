@@ -18,7 +18,7 @@ struct ContentView: View {
                     Image(systemName: "circle")
                     // User's photo
                 }
-                .padding()
+                .padding(25)
                 VStack{
                     Image("gymImage")
                         .resizable()
@@ -27,13 +27,21 @@ struct ContentView: View {
                 .frame(width: 400, height: 250)
                 
                 
-                VStack{
+                ZStack{
+                    Circle(
+                        )
+                    .fill(.white)
+                    .shadow(color: .black.opacity(0.1), radius: 3, x: 2, y: -2)
+                        .frame(width: 100, height: 100)
+                        
+                    
                     Button("Check In"){
                     }
-                    
-                    
                 }
-                .frame(minWidth: 400, minHeight: 100)
+                
+                .frame(minWidth: 400, minHeight: 75)
+                .padding(.top)
+               
  
                 
 
@@ -50,18 +58,20 @@ struct ContentView: View {
                         
                         MainButtonSelectionView(subjectSelected: "What to eat?")
                     }
-                    .padding()
+                    
                 }
-                
+                .buttonStyle(.plain)
                 .font(.callout)
                 .foregroundStyle(.black)
-//                .border(.black)
-                .frame(width: 400, height: 400)
+
+                .frame(width: 400, height: 300)
                 
             }
             
         }
-        
+        .background(Color("darkBlue"))
+        .foregroundStyle(.white)
+        .ignoresSafeArea()
         
     }
 }
