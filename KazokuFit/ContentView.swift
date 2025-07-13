@@ -13,12 +13,15 @@ struct ContentView: View {
             VStack{
                 HStack{
                     Text("User's Name")
+                        .foregroundStyle(.white)
                         .font(.system(size: 28))
                     Spacer()
+                    
                     Image(systemName: "circle")
                     // User's photo
                 }
                 .padding(25)
+                .padding(.top,40)
                 VStack{
                     Image("gymImage")
                         .resizable()
@@ -41,6 +44,7 @@ struct ContentView: View {
                 
                 .frame(minWidth: 400, minHeight: 75)
                 .padding(.top)
+
                
  
                 
@@ -70,7 +74,7 @@ struct ContentView: View {
             
         }
         .background(Color("darkBlue"))
-        .foregroundStyle(.white)
+
         .ignoresSafeArea()
         
     }
