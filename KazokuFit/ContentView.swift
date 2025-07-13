@@ -20,25 +20,23 @@ struct ContentView: View {
                 }
                 .padding()
                 VStack{
-                    Image(systemName: "globe")
+                    Image("gymImage")
+                        .resizable()
+                        .scaledToFill()
                 }
-                .frame(minWidth: 400, minHeight: 200)
-                .background(.teal)
+                .frame(width: 400, height: 250)
+                
                 
                 VStack{
                     Button("Check In"){
-                        
                     }
-//                    .buttonStyle(.plain)
-                    .buttonBorderShape(.automatic)
                     
                     
                 }
                 .frame(minWidth: 400, minHeight: 100)
  
-                .border(.black)
                 
-                
+
                 VStack{
                     HStack{
                         
@@ -46,7 +44,7 @@ struct ContentView: View {
                         
                         MainButtonSelectionView(subjectSelected: "Calisthenics")
                     }
-                    .padding()
+                    
                     HStack{
                         MainButtonSelectionView(subjectSelected: "Stretching")
                         
@@ -57,7 +55,7 @@ struct ContentView: View {
                 
                 .font(.callout)
                 .foregroundStyle(.black)
-                .border(.black)
+//                .border(.black)
                 .frame(width: 400, height: 400)
                 
             }
