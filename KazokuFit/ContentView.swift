@@ -23,19 +23,22 @@ struct ContentView: View {
                 .padding(25)
                 .padding(.top,40)
                 VStack{
-                    Image("gymImage")
+                    Image("gymPlates")
                         .resizable()
                         .scaledToFill()
                 }
-                .frame(width: 400, height: 250)
+                .frame(width: 400, height: 200)
+                .padding(.top, 25)
+                .padding(.bottom, 25)
+                
                 
                 
                 ZStack{
-                    Circle(
+                    Rectangle(
                         )
-                    .fill(.white)
-                    .shadow(color: .black.opacity(0.1), radius: 3, x: 2, y: -2)
-                        .frame(width: 100, height: 100)
+                    .fill(.ultraThinMaterial)
+                    .background(.black.opacity(0.4))
+                    .frame(width: 400, height: 70)
                         
                     
                     Button("Check In"){
@@ -43,7 +46,8 @@ struct ContentView: View {
                 }
                 
                 .frame(minWidth: 400, minHeight: 75)
-                .padding(.top)
+                .foregroundStyle(.white)
+                .padding(.top, 60)
 
                
  
@@ -71,6 +75,7 @@ struct ContentView: View {
                 .frame(width: 400, height: 300)
                 
             }
+            .padding(.top,10)
             
         }
         .background(Color("darkBlue"))
