@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isConfirmationDialogVisible = false
+    @State private var isUserCheckedIn = false
     var body: some View {
         ScrollView{
             VStack{
@@ -23,7 +25,7 @@ struct ContentView: View {
                 .padding(25)
                 .padding(.top,40)
                 VStack{
-                    Image("gymPlates")
+                    Image("gymImage")
                         .resizable()
                         .scaledToFill()
                 }
@@ -37,11 +39,22 @@ struct ContentView: View {
                     Rectangle(
                         )
                     .fill(.ultraThinMaterial)
-                    .background(.black.opacity(0.4))
+                    .background(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
                     .frame(width: 400, height: 70)
                         
                     
-                    Button("Check In"){
+                    Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
+                        isConfirmationDialogVisible.toggle()
+//
+                    }
+                    .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
+                        Button("Check In"){
+                            withAnimation{
+                                isUserCheckedIn.toggle()
+                            }
+                            
+                        }
+                        Button("Cancel", role:.cancel){}
                     }
                 }
                 
