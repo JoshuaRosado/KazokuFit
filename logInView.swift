@@ -20,11 +20,24 @@ struct logInView: View {
                     TextField("password", text: $password)
                     
                 }
-                
                 .scrollContentBackground(.hidden)
+                .padding(.bottom, 50)
             }
-            .frame(width: 350, height: 200, alignment: .center)
+            .frame(width: 350, height: 650, alignment: .center)
+            .border(.red)
+            .padding(.top, 200)
+            VStack{
+                Button("Log In"){}
+                
+                
+                Button("Create account"){
+                    // open new view
+                }
+            }
+            
+            
         }
+        
         
         
     }
