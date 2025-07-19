@@ -21,19 +21,22 @@ struct logInView: View {
                     
                 }
                 .scrollContentBackground(.hidden)
-                .padding(.bottom, 50)
-            }
-            .frame(width: 350, height: 650, alignment: .center)
-            .border(.red)
-            .padding(.top, 200)
-            VStack{
-                Button("Log In"){}
+                .padding()
                 
-                
-                Button("Create account"){
-                    // open new view
+                VStack{
+                    Button("Log In"){}
+                    
+                    
+                    Button("Create account"){
+                        // open new view
+                    }
                 }
+                .foregroundStyle(.white)
             }
+            .frame(width: 350, height: 250, alignment: .center)
+       
+            Spacer()
+            
             
             
         }

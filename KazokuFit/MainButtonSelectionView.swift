@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainButtonSelectionView: View {
     @State var subjectSelected: String
+    @State var isLoginViewOpen: Bool?
     var body: some View {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
@@ -17,6 +18,7 @@ struct MainButtonSelectionView: View {
                     
   
                 Button(subjectSelected){
+                    isLoginViewOpen?.toggle()
                     
                 }
                 .foregroundStyle(.white)
@@ -29,5 +31,5 @@ struct MainButtonSelectionView: View {
 }
 
 #Preview {
-    MainButtonSelectionView(subjectSelected: "Boxing")
+    MainButtonSelectionView(subjectSelected: "Boxing", isLoginViewOpen: false)
 }

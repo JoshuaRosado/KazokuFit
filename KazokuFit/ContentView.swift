@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLogInViewOpen = false
     @State private var isConfirmationDialogVisible = false
     @State private var isUserCheckedIn = false
     var body: some View {
@@ -24,17 +25,22 @@ struct ContentView: View {
                 }
                 .padding(25)
                 .padding(.top,40)
-                VStack{
-                    Image("gymImage")
-                        .resizable()
-                        .scaledToFill()
+                
+                Image("gymImage")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 400, height: 200)
+                    .clipped()
+                    .padding(.vertical, 25)
+                
+                
+                
+                
+                Button("LogIn"){
+                    isLogInViewOpen.toggle()
                 }
-                .frame(width: 400, height: 200)
-                .padding(.top, 25)
-                .padding(.bottom, 25)
-                
-                
-                
+                .foregroundStyle(.white
+                )
                 ZStack{
                     Rectangle(
                         )
@@ -42,6 +48,7 @@ struct ContentView: View {
                     .background(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
                     .frame(width: 400, height: 70)
                         
+                    
                     
                     Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
                         isConfirmationDialogVisible.toggle()
@@ -58,6 +65,7 @@ struct ContentView: View {
                     }
                 }
                 
+                
                 .frame(minWidth: 400, minHeight: 75)
                 .foregroundStyle(.white)
                 .padding(.top, 60)
@@ -69,15 +77,17 @@ struct ContentView: View {
                 VStack{
                     HStack{
                         
-                        MainButtonSelectionView(subjectSelected: "Weights")
                         
-                        MainButtonSelectionView(subjectSelected: "Calisthenics")
+                        MainButtonSelectionView(subjectSelected: "Weights", isLoginViewOpen: isLogInViewOpen)
+                        
+                        
+                        MainButtonSelectionView(subjectSelected: "Calisthenics",isLoginViewOpen: false)
                     }
                     
                     HStack{
-                        MainButtonSelectionView(subjectSelected: "Stretching")
+                        MainButtonSelectionView(subjectSelected: "Stretching",isLoginViewOpen: false)
                         
-                        MainButtonSelectionView(subjectSelected: "What to eat?")
+                        MainButtonSelectionView(subjectSelected: "What to eat?",isLoginViewOpen: false)
                     }
                     
                 }
@@ -91,11 +101,16 @@ struct ContentView: View {
             .padding(.top,10)
             
         }
+        
         .background(Color("darkBlue"))
 
         .ignoresSafeArea()
         
+        .sheet(isPresented: $isLogInViewOpen){
+            logInView()
+        }
     }
+        
 }
 
 #Preview {
