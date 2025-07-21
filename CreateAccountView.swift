@@ -43,7 +43,7 @@ struct CreateAccountView: View {
                 }
                 .foregroundStyle(.white)
             }
-            .frame(width: 350, height: 350, alignment: .center)
+            .frame(width: 350, height: 400, alignment: .center)
        
             Spacer()
             
