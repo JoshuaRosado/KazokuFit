@@ -107,7 +107,7 @@ struct ContentView: View {
         .ignoresSafeArea()
         
         .sheet(isPresented: $isLogInViewOpen){
-            logInView()
+            CreateAccountView()
         }
     }
         
