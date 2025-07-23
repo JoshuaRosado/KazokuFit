@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CreateAccountView: View {
-    @State private var username = ""
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var email = ""
@@ -19,7 +18,6 @@ struct CreateAccountView: View {
                 .ignoresSafeArea()
             VStack{
                 Form{
-                    TextField("Username", text: $username)
                     TextField("First name", text: $firstName)
                     TextField("Last name", text: $lastName)
                     TextField("Email", text: $email)

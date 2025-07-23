@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct logInView: View {
-    @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
     var body: some View {
         ZStack{
@@ -16,7 +16,7 @@ struct logInView: View {
                 .ignoresSafeArea()
             VStack{
                 Form{
-                    TextField("username", text: $username)
+                    TextField("username", text: $email)
                     TextField("password", text: $password)
                     
                 }
@@ -36,13 +36,8 @@ struct logInView: View {
             .frame(width: 350, height: 250, alignment: .center)
        
             Spacer()
-            
-            
-            
+   
         }
-        
-        
-        
     }
 }
 
