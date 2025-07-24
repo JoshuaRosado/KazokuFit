@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A296EE2D2E28315F00D9B1F7 /* logInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE2C2E28315F00D9B1F7 /* logInView.swift */; };
 		A296EE2F2E2ED35900D9B1F7 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE2E2E2ED35900D9B1F7 /* CreateAccountView.swift */; };
+		A296EE312E328EE200D9B1F7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE302E328EE200D9B1F7 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		A296EE132E1A043500D9B1F7 /* KazokuFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KazokuFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296EE2C2E28315F00D9B1F7 /* logInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInView.swift; sourceTree = "<group>"; };
 		A296EE2E2E2ED35900D9B1F7 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		A296EE302E328EE200D9B1F7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +84,7 @@
 		A296EDF02E1A043000D9B1F7 = {
 			isa = PBXGroup;
 			children = (
+				A296EE302E328EE200D9B1F7 /* HomeView.swift */,
 				A296EE2E2E2ED35900D9B1F7 /* CreateAccountView.swift */,
 				A296EE2C2E28315F00D9B1F7 /* logInView.swift */,
 				A296EDFB2E1A043000D9B1F7 /* KazokuFit */,
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A296EE2D2E28315F00D9B1F7 /* logInView.swift in Sources */,
+				A296EE312E328EE200D9B1F7 /* HomeView.swift in Sources */,
 				A296EE2F2E2ED35900D9B1F7 /* CreateAccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
