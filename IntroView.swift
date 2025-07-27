@@ -10,10 +10,14 @@ import SwiftUI
 struct IntroView: View {
     var body: some View {
         ZStack{
-            RadialGradient(colors: [.darkBlue, .coral], center: .bottom, startRadius:500, endRadius:900)
+            Color.darkBlue
                 .ignoresSafeArea()
+            
+            Image("logo")
+                .resizable()
+                .scaledToFit()
         }
-        // Logo Image for intro
+        
     }
 }
 
