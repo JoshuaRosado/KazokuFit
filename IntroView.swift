@@ -13,9 +13,14 @@ struct IntroView: View {
             Color.darkBlue
                 .ignoresSafeArea()
             
-            Image("logo")
-                .resizable()
-                .scaledToFit()
+            VStack{
+                Text("Welcome")
+                
+                
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+            }
         }
         
     }
