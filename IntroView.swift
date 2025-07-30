@@ -12,15 +12,13 @@ struct IntroView: View {
         ZStack{
             Color.darkBlue
                 .ignoresSafeArea()
-            
-            VStack{
-                Text("Welcome")
+
                 
                 
                 Image("logo")
                     .resizable()
                     .scaledToFit()
-            }
+
         }
         
     }
