@@ -7,40 +7,55 @@
 
 import SwiftUI
 
-struct logInView: View {
+struct LogInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var isCreateAccountViewShowing = false
     var body: some View {
         ZStack{
             RadialGradient(colors: [.darkBlue, .coral], center: .bottom, startRadius:500, endRadius:900)
                 .ignoresSafeArea()
-            VStack{
+            
+            VStack(alignment: .center){
+                Spacer()
                 Form{
+                    
                     TextField("username", text: $email)
                     TextField("password", text: $password)
                     
+                    
                 }
                 .scrollContentBackground(.hidden)
+                .frame(width: 350, height: 200)
                 .padding()
                 
+                
+                Button("Log In"){}
+                    .padding(.top, -25)
+                    .buttonStyle(.borderedProminent)
+                
+                
+                Spacer()
                 VStack{
-                    Button("Log In"){}
-                    
                     
                     Button("Create account"){
-                        // open new view
+                        isCreateAccountViewShowing.toggle()
+                        
                     }
+                    .padding()
+                    
                 }
-                .foregroundStyle(.white)
+                
             }
-            .frame(width: 350, height: 250, alignment: .center)
+            .foregroundStyle(.white)
+            .frame(width: 350, height: 800, alignment: .center)
        
-            Spacer()
+            
    
         }
     }
 }
 
 #Preview {
-    logInView()
+    LogInView()
 }

@@ -35,7 +35,7 @@ struct OpeningView: View {
                 // After 3 seconds of IntroView display, "isVisible" will become false
             } else {
                 // Display HomeView when Bool == false
-                CreateAccountView()
+                LogInView()
             }
         }
     }

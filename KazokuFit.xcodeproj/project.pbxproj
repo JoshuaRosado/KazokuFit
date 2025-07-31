@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A296EE2D2E28315F00D9B1F7 /* logInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE2C2E28315F00D9B1F7 /* logInView.swift */; };
+		A296EE2D2E28315F00D9B1F7 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE2C2E28315F00D9B1F7 /* LogInView.swift */; };
 		A296EE2F2E2ED35900D9B1F7 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE2E2E2ED35900D9B1F7 /* CreateAccountView.swift */; };
 		A296EE312E328EE200D9B1F7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE302E328EE200D9B1F7 /* HomeView.swift */; };
 		A296EE332E35A8A600D9B1F7 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE322E35A8A600D9B1F7 /* IntroView.swift */; };
@@ -37,7 +37,7 @@
 		A296EDF92E1A043000D9B1F7 /* KazokuFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KazokuFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296EE092E1A043500D9B1F7 /* KazokuFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KazokuFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296EE132E1A043500D9B1F7 /* KazokuFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KazokuFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A296EE2C2E28315F00D9B1F7 /* logInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInView.swift; sourceTree = "<group>"; };
+		A296EE2C2E28315F00D9B1F7 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		A296EE2E2E2ED35900D9B1F7 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		A296EE302E328EE200D9B1F7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A296EE322E35A8A600D9B1F7 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				A296EE322E35A8A600D9B1F7 /* IntroView.swift */,
 				A296EE302E328EE200D9B1F7 /* HomeView.swift */,
 				A296EE2E2E2ED35900D9B1F7 /* CreateAccountView.swift */,
-				A296EE2C2E28315F00D9B1F7 /* logInView.swift */,
+				A296EE2C2E28315F00D9B1F7 /* LogInView.swift */,
 				A296EDFB2E1A043000D9B1F7 /* KazokuFit */,
 				A296EE0C2E1A043500D9B1F7 /* KazokuFitTests */,
 				A296EE162E1A043500D9B1F7 /* KazokuFitUITests */,
@@ -263,7 +263,7 @@
 				A296EE372E3AB54600D9B1F7 /* TimerView.swift in Sources */,
 				A296EE392E3AB68C00D9B1F7 /* TimerCountDown.swift in Sources */,
 				A296EE332E35A8A600D9B1F7 /* IntroView.swift in Sources */,
-				A296EE2D2E28315F00D9B1F7 /* logInView.swift in Sources */,
+				A296EE2D2E28315F00D9B1F7 /* LogInView.swift in Sources */,
 				A296EE312E328EE200D9B1F7 /* HomeView.swift in Sources */,
 				A296EE2F2E2ED35900D9B1F7 /* CreateAccountView.swift in Sources */,
 				A296EE352E3AB4D100D9B1F7 /* OpeningView.swift in Sources */,
