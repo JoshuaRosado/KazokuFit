@@ -4,8 +4,9 @@
 //
 //  Created by Joshua Rosado Olivencia on 7/5/25.
 //
-
+import SwiftData
 import SwiftUI
+
 
 @main
 struct KazokuFitApp: App {
@@ -13,5 +14,7 @@ struct KazokuFitApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: User.self)
     }
+        
 }
