@@ -7,10 +7,9 @@
 
 import Foundation
 import SwiftData
-import SwiftUI
+
 
 @Model
-
 class User {
     var firstName: String
     var lastName : String

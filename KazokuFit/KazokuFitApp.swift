@@ -7,14 +7,14 @@
 import SwiftData
 import SwiftUI
 
-
 @main
 struct KazokuFitApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: User.self)
         }
-        .modelContainer(for: User.self)
+        
     }
         
 }
