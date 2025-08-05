@@ -61,7 +61,7 @@ class UserManager{
                 throw UserManagerError.weakPassword
             }
         
-        if try userAlreadyExists(email: email) {
+        if try userExists(email: email) {
             throw UserManagerError.userAlreadyExists
         }
     
