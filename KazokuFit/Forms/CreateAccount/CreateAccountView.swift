@@ -5,9 +5,13 @@
 //  Created by Joshua Rosado Olivencia on 7/21/25.
 //
 
+import SwiftData
 import SwiftUI
 
 struct CreateAccountView: View {
+    
+    let userManager: UserManager // Injected UserManager
+    
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var email = ""
@@ -62,5 +66,7 @@ struct CreateAccountView: View {
 }
 
 #Preview {
-    CreateAccountView()
+    let dummyModelContext = try! ModelContainer(for: User.self).mainContext
+    let userManager = UserManager(model: dummyModelContext)
+    return CreateAccountView(userManager: userManager)
 }

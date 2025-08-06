@@ -4,10 +4,13 @@
 //
 //  Created by Joshua Rosado Olivencia on 7/16/25.
 //
-
+import SwiftData
 import SwiftUI
 
 struct LogInView: View {
+    
+    let userManager: UserManager // Injected UserManager
+    
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isCreateAccountViewShowing = false
@@ -30,7 +33,14 @@ struct LogInView: View {
                 .padding()
                 
                 
-                Button("Log In"){}
+                Button("Log In"){
+                    do {
+                        let user = try userManager.loginUser(email: email, password: password)
+                        print("Welcome, \(user.firstName)")
+                    } catch {
+                        print("Login failer: \(error.localizedDescription)")
+                    }
+                }
                     .padding(.top, -25)
                     .buttonStyle(.borderedProminent)
                 
@@ -53,9 +63,16 @@ struct LogInView: View {
             
    
         }
+        
+        .fullScreenCover(isPresented: $isCreateAccountViewShowing){
+            CreateAccountView(userManager: userManager)
+        }
     }
 }
 
 #Preview {
-    LogInView()
+    
+    let dummyModelContext = try! ModelContainer( for: User.self).mainContext
+    let userManager = UserManager(model: dummyModelContext)
+    return LogInView(userManager: userManager)
 }

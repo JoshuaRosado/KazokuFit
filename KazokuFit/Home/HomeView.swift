@@ -4,10 +4,11 @@
 //
 //  Created by Joshua Rosado Olivencia on 7/24/25.
 //
-
+import SwiftData
 import SwiftUI
 
 struct HomeView: View {
+    let userManager: UserManager
     @State private var isLogInViewOpen = false
     @State private var isConfirmationDialogVisible = false
     @State private var isUserCheckedIn = false
@@ -107,13 +108,17 @@ struct HomeView: View {
         .ignoresSafeArea()
         
         .sheet(isPresented: $isLogInViewOpen){
-            CreateAccountView()
+            CreateAccountView(userManager: userManager)
         }
     }
         
 }
 
 #Preview {
-    HomeView()
+    let dummyModelContext = try! ModelContainer(for: User.self).mainContext
+    
+    let userManager = UserManager(model: dummyModelContext)
+    
+    return HomeView(userManager: userManager)
 }
 

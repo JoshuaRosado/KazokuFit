@@ -5,10 +5,12 @@
 //  Created by Joshua Rosado Olivencia on 7/30/25.
 //
 
+import SwiftData
 import SwiftUI
 
 
 struct OpeningView: View {
+    let userManager: UserManager
     // tracking the intro View
     // When app opens, the introView is visible ( true )
     @State private var isVisible = true
@@ -35,11 +37,15 @@ struct OpeningView: View {
                 // After 3 seconds of IntroView display, "isVisible" will become false
             } else {
                 // Display HomeView when Bool == false
-                LogInView()
+                LogInView(userManager: userManager)
             }
         }
     }
 }
 #Preview {
-    OpeningView()
+    let dummyModelContext = try! ModelContainer(for: User.self).mainContext
+    
+    let userManager = UserManager(model: dummyModelContext)
+    
+    return OpeningView(userManager: userManager)
 }

@@ -11,7 +11,9 @@ import SwiftUI
 struct KazokuFitApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let container = try! ModelContainer(for: User.self)
+            let userManager = UserManager(model: container.mainContext)
+            ContentView(userManager: userManager)
                 .modelContainer(for: User.self)
         }
         
