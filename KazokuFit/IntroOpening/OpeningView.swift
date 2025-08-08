@@ -11,6 +11,7 @@ import SwiftUI
 
 struct OpeningView: View {
     let userManager: UserManager
+    @Bindable var session: SessionManager
     // tracking the intro View
     // When app opens, the introView is visible ( true )
     @State private var isVisible = true
@@ -37,7 +38,7 @@ struct OpeningView: View {
                 // After 3 seconds of IntroView display, "isVisible" will become false
             } else {
                 // Display HomeView when Bool == false
-                LogInView(userManager: userManager)
+                LogInView(userManager: userManager, session: session)
             }
         }
     }
@@ -47,5 +48,7 @@ struct OpeningView: View {
     
     let userManager = UserManager(model: dummyModelContext)
     
-    return OpeningView(userManager: userManager)
+    let session = SessionManager()
+    
+    return OpeningView(userManager: userManager, session: session)
 }

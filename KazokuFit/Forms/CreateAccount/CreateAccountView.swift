@@ -28,8 +28,8 @@ struct CreateAccountView: View {
                     TextField("First name", text: $firstName)
                     TextField("Last name", text: $lastName)
                     TextField("Email", text: $email)
-                    TextField("Password", text: $password)
-                    TextField("Confirm Password", text: $password)
+                    SecureField("Password", text: $password)
+                    SecureField("Confirm Password", text: $password)
                     
 
               

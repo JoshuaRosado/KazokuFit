@@ -10,9 +10,14 @@ import SwiftUI
 struct LogInView: View {
     
     let userManager: UserManager // Injected UserManager
+    @Bindable var session: SessionManager
+    
+    @Environment(\.dismiss) private var dismiss
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var isLoggedIn = false
+    @State private var errorMessage : String?
     @State private var isCreateAccountViewShowing = false
     var body: some View {
         ZStack{
@@ -24,7 +29,7 @@ struct LogInView: View {
                 Form{
                     
                     TextField("username", text: $email)
-                    TextField("password", text: $password)
+                    SecureField("password", text: $password)
                     
                     
                 }
@@ -36,13 +41,19 @@ struct LogInView: View {
                 Button("Log In"){
                     do {
                         let user = try userManager.loginUser(email: email, password: password)
+                        session.currentUser = user
                         print("Welcome, \(user.firstName)")
+                        dismiss()
                     } catch {
-                        print("Login failer: \(error.localizedDescription)")
+                        errorMessage = error.localizedDescription
                     }
                 }
                     .padding(.top, -25)
                     .buttonStyle(.borderedProminent)
+                
+                if let errorMessage = errorMessage {
+                    Text(errorMessage).foregroundStyle(.red)
+                }
                 
                 
                 Spacer()
@@ -67,6 +78,10 @@ struct LogInView: View {
         .fullScreenCover(isPresented: $isCreateAccountViewShowing){
             CreateAccountView(userManager: userManager)
         }
+        
+        .fullScreenCover(isPresented: $isLoggedIn) {
+            HomeView(userManager: userManager, session: session)
+        }
     }
 }
 
@@ -74,5 +89,6 @@ struct LogInView: View {
     
     let dummyModelContext = try! ModelContainer( for: User.self).mainContext
     let userManager = UserManager(model: dummyModelContext)
-    return LogInView(userManager: userManager)
+    let session = SessionManager()
+    return LogInView(userManager: userManager, session: session)
 }

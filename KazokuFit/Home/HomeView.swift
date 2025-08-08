@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     let userManager: UserManager
+    @Bindable var session: SessionManager
+    
     @State private var isLogInViewOpen = false
     @State private var isConfirmationDialogVisible = false
     @State private var isUserCheckedIn = false
@@ -40,6 +42,7 @@ struct HomeView: View {
                 Button("LogIn"){
                     isLogInViewOpen.toggle()
                 }
+                
                 .foregroundStyle(.white
                 )
                 ZStack{
@@ -108,7 +111,7 @@ struct HomeView: View {
         .ignoresSafeArea()
         
         .sheet(isPresented: $isLogInViewOpen){
-            CreateAccountView(userManager: userManager)
+            LogInView(userManager: userManager, session: session)
         }
     }
         
@@ -118,7 +121,7 @@ struct HomeView: View {
     let dummyModelContext = try! ModelContainer(for: User.self).mainContext
     
     let userManager = UserManager(model: dummyModelContext)
-    
-    return HomeView(userManager: userManager)
+    let session = SessionManager()
+    return HomeView(userManager: userManager, session: session)
 }
 

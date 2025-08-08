@@ -10,12 +10,14 @@ import SwiftUI
 
 struct ContentView: View {
     let userManager : UserManager
+    @State private var session = SessionManager()
     
     
     var body: some View {
-        OpeningView(userManager: userManager)
+        OpeningView(userManager: userManager, session: session)
     }
 }
+
 
 
 #Preview {
@@ -23,7 +25,8 @@ struct ContentView: View {
         let dummyModelContext = try! ModelContainer(for: User.self).mainContext
         
         let userManager = UserManager(model: dummyModelContext)
+
         
-      return  ContentView(userManager: userManager)
+     return ContentView(userManager: userManager)
     
 }

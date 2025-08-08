@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A23CB3972E4567640067F028 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23CB3962E4567640067F028 /* SessionManager.swift */; };
 		A296EE4F2E3FFB8C00D9B1F7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE4E2E3FFB8C00D9B1F7 /* User.swift */; };
 		A296EE512E4000CA00D9B1F7 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EE502E4000CA00D9B1F7 /* UserManager.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A23CB3962E4567640067F028 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		A296EDF92E1A043000D9B1F7 /* KazokuFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KazokuFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296EE092E1A043500D9B1F7 /* KazokuFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KazokuFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296EE132E1A043500D9B1F7 /* KazokuFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KazokuFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 		A296EDF02E1A043000D9B1F7 = {
 			isa = PBXGroup;
 			children = (
+				A23CB3962E4567640067F028 /* SessionManager.swift */,
 				A296EE502E4000CA00D9B1F7 /* UserManager.swift */,
 				A296EE4E2E3FFB8C00D9B1F7 /* User.swift */,
 				A296EDFB2E1A043000D9B1F7 /* KazokuFit */,
@@ -247,6 +250,7 @@
 			files = (
 				A296EE512E4000CA00D9B1F7 /* UserManager.swift in Sources */,
 				A296EE4F2E3FFB8C00D9B1F7 /* User.swift in Sources */,
+				A23CB3972E4567640067F028 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

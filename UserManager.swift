@@ -4,9 +4,10 @@
 //
 //  Created by Joshua Rosado Olivencia on 8/3/25.
 //
-
+import CryptoKit
 import Foundation
 import SwiftData
+
 
 
 // Create the possible Errors and insert them into an "enum" named UserManagerError
@@ -67,12 +68,16 @@ class UserManager{
     
         
         // Creating new user with the data submitted by user
-        let newUser = User(firstName: firstName, lastName: lastName, password: password, email: email)
+        let newUser = User(firstName: firstName, lastName: lastName, password: hashPassword(password), email: email)
         // Have the Personal Assistant write this data down
         model.insert(newUser)
         // Try saving the new user's data
         try model.save()
         
+    }
+    func hashPassword(_ password: String) -> String {
+        let digest = SHA256.hash(data: Data(password.utf8))
+        return digest.compactMap { String(format: "%02x", $0) }.joined()
     }
     
     func loginUser(email: String, password: String) throws -> User {
@@ -88,8 +93,12 @@ class UserManager{
         let users = try model.fetch(descriptor)
         
         guard let user = users.first else {
-            throw UserManagerError.incorrectPassword
-        }
+               throw UserManagerError.userNotFound //
+           }
+
+           guard user.password == hashPassword(password) else {
+               throw UserManagerError.incorrectPassword //
+           }
         
         return user
     }
