@@ -34,6 +34,7 @@ struct LogInView: View {
                     
                 }
                 .scrollContentBackground(.hidden)
+                .foregroundStyle(.black)
                 .frame(width: 350, height: 200)
                 .padding()
                 
@@ -76,7 +77,7 @@ struct LogInView: View {
         }
         
         .fullScreenCover(isPresented: $isCreateAccountViewShowing){
-            CreateAccountView(userManager: userManager)
+            CreateAccountView(userManager: userManager, session: session)
         }
         
         .fullScreenCover(isPresented: $isLoggedIn) {

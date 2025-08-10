@@ -11,11 +11,13 @@ import SwiftUI
 struct CreateAccountView: View {
     
     let userManager: UserManager // Injected UserManager
+    @Bindable var session: SessionManager
     
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var email = ""
     @State private var password = ""
+    @State private var confirmPassword = ""
     @State private var showingLogInView = false
     var body: some View {
         ZStack{
@@ -28,8 +30,10 @@ struct CreateAccountView: View {
                     TextField("First name", text: $firstName)
                     TextField("Last name", text: $lastName)
                     TextField("Email", text: $email)
+                        .keyboardType(.emailAddress)
+                                .autocapitalization(.none)
                     SecureField("Password", text: $password)
-                    SecureField("Confirm Password", text: $password)
+                    SecureField("Confirm Password", text: $confirmPassword)
                     
 
               
@@ -40,6 +44,7 @@ struct CreateAccountView: View {
                 
                 
                 Button("Create account"){
+                    
                     
                 }
                 .buttonStyle(.borderedProminent)
@@ -62,11 +67,15 @@ struct CreateAccountView: View {
             
             
         }
+        .fullScreenCover(isPresented: $showingLogInView){
+            LogInView(userManager: userManager, session: session)
+        }
     }
 }
 
 #Preview {
     let dummyModelContext = try! ModelContainer(for: User.self).mainContext
     let userManager = UserManager(model: dummyModelContext)
-    return CreateAccountView(userManager: userManager)
+    let session = SessionManager()
+    return CreateAccountView(userManager: userManager, session: session)
 }

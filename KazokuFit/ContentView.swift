@@ -25,7 +25,7 @@ struct ContentView: View {
         let dummyModelContext = try! ModelContainer(for: User.self).mainContext
         
         let userManager = UserManager(model: dummyModelContext)
-
+ 
         
      return ContentView(userManager: userManager)
     

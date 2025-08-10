@@ -48,7 +48,7 @@ class UserManager{
         self.model = model
     }
     
-    func createUser(firstName: String, lastName: String, password: String, email: String ) throws {
+    func createUser(firstName: String, lastName: String, password: String,confirmPassword: String, email: String ) throws {
         
         guard !firstName.isEmpty, !lastName.isEmpty, !password.isEmpty, !email.isEmpty else {
             throw UserManagerError.emptyFields
@@ -68,7 +68,7 @@ class UserManager{
     
         
         // Creating new user with the data submitted by user
-        let newUser = User(firstName: firstName, lastName: lastName, password: hashPassword(password), email: email)
+        let newUser = User(firstName: firstName, lastName: lastName, password: hashPassword(password),confirmPassword: confirmPassword, email: email)
         // Have the Personal Assistant write this data down
         model.insert(newUser)
         // Try saving the new user's data
