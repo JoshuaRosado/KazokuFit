@@ -7,11 +7,12 @@
 
 import SwiftData
 import SwiftUI
+import Combine
 
 struct CreateAccountView: View {
     
     let userManager: UserManager // Injected UserManager
-    @Bindable var session: SessionManager
+    @ObservedObject var session: SessionManager
     
     @State private var firstName = ""
     @State private var lastName = ""
@@ -31,38 +32,63 @@ struct CreateAccountView: View {
                     TextField("Last name", text: $lastName)
                     TextField("Email", text: $email)
                         .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
+                        .autocapitalization(.none)
                     SecureField("Password", text: $password)
                     SecureField("Confirm Password", text: $confirmPassword)
                     
-
-              
+                    
+                    
                 }
                 .frame(width: 350, height: 300)
                 .scrollContentBackground(.hidden)
                 .padding()
                 
                 
-                Button("Create account"){
-                    
-                    
+                Button(action: {
+                    guard !firstName.isEmpty,
+                          !lastName.isEmpty,
+                          !email.isEmpty,
+                          !password.isEmpty else {
+                        print("⚠️ Please fill in all fields.")
+                        return
+                    }
+
+                    guard password == confirmPassword else {
+                        print("⚠️ Passwords do not match.")
+                        return
+                    }
+
+                    do {
+                        let user = try userManager.createUser(firstName: firstName,
+                                                              lastName: lastName,
+                                                              password: password, confirmPassword: confirmPassword,
+                                                              email: email)
+                        session.login(user: user)
+                        print("✅ Account created and user logged in.")
+                    } catch {
+                        print("❌ Failed to create user: \(error.localizedDescription)")
+                    }
+                }) {
+                    Text("Create account")
                 }
                 .buttonStyle(.borderedProminent)
+                confirmPassword
+                
                 
                 Spacer()
                 VStack{
- 
+                    
                     Button("Already have an account?"){
                         
                         showingLogInView.toggle()
-                       
+                        
                     }
                     .padding(.bottom)
                 }
                 .foregroundStyle(.white)
             }
             .frame(width: 350, height: 800, alignment: .center)
-
+            
             
             
             

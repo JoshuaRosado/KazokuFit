@@ -9,9 +9,13 @@ import Foundation
 import SwiftData
 
 @Observable
-class SessionManager{
+class SessionManager: ObservableObject{
     var currentUser: User? = nil
-    var isLogIn: Bool {
-        currentUser != nil
-    }
+    
+    func login(user: User) {
+            self.currentUser = user
+        }
+    func logout() {
+            self.currentUser = nil
+        }
 }

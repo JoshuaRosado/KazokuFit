@@ -10,7 +10,7 @@ import SwiftUI
 struct LogInView: View {
     
     let userManager: UserManager // Injected UserManager
-    @Bindable var session: SessionManager
+    @ObservedObject var session: SessionManager
     
     @Environment(\.dismiss) private var dismiss
     

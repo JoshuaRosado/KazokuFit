@@ -48,7 +48,7 @@ class UserManager{
         self.model = model
     }
     
-    func createUser(firstName: String, lastName: String, password: String,confirmPassword: String, email: String ) throws {
+    func createUser(firstName: String, lastName: String, password: String,confirmPassword: String, email: String ) throws -> <#Return Type#> {
         
         guard !firstName.isEmpty, !lastName.isEmpty, !password.isEmpty, !email.isEmpty else {
             throw UserManagerError.emptyFields
@@ -73,6 +73,9 @@ class UserManager{
         model.insert(newUser)
         // Try saving the new user's data
         try model.save()
+        
+        return newUser
+        
         
     }
     func hashPassword(_ password: String) -> String {
