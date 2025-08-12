@@ -48,13 +48,16 @@ class UserManager{
         self.model = model
     }
     
-    func createUser(firstName: String, lastName: String, password: String,confirmPassword: String, email: String ) throws -> <#Return Type#> {
+    func createUser(firstName: String, lastName: String, password: String, email: String ) throws -> User {
         
         guard !firstName.isEmpty, !lastName.isEmpty, !password.isEmpty, !email.isEmpty else {
+            print("ERROR")
             throw UserManagerError.emptyFields
+           
             
         }
             guard isValidEmail(email) else {
+                print("ERROR")
                 throw UserManagerError.invalidEmailFormat
             }
         
@@ -68,11 +71,13 @@ class UserManager{
     
         
         // Creating new user with the data submitted by user
-        let newUser = User(firstName: firstName, lastName: lastName, password: hashPassword(password),confirmPassword: confirmPassword, email: email)
+        let newUser = User(firstName: firstName, lastName: lastName, password: hashPassword(password), email: email.lowercased())
         // Have the Personal Assistant write this data down
         model.insert(newUser)
         // Try saving the new user's data
         try model.save()
+        print(newUser.firstName, newUser.lastName, newUser.email)
+        print("ERROR")
         
         return newUser
         
@@ -95,22 +100,40 @@ class UserManager{
         let descriptor = FetchDescriptor<User>(predicate: #Predicate { $0.email == email})
         let users = try model.fetch(descriptor)
         
-        guard let user = users.first else {
-               throw UserManagerError.userNotFound //
-           }
-
-           guard user.password == hashPassword(password) else {
-               throw UserManagerError.incorrectPassword //
-           }
-        
-        return user
+        do{
+            guard let user = users.first else {
+                throw UserManagerError.userNotFound //
+            }
+            
+            guard user.password == hashPassword(password) else {
+                throw UserManagerError.incorrectPassword //
+            }
+            
+            return user
+            
+        } catch
+        {
+            print("❌ Failed to fetch user: \(error)")
+            throw error // Or wrap in a custom error
+        }
     }
     
     private func userExists(email: String) throws -> Bool {
-        let descriptor = FetchDescriptor<User>(predicate: #Predicate { $0.email == email})
-        let users = try model.fetch(descriptor)
-        return !users.isEmpty
+        let descriptor = FetchDescriptor<User>(
+            predicate: #Predicate { user in
+                user.email == email
+            }
+        )
+
+        do {
+            let users = try model.fetch(descriptor)
+            return !users.isEmpty
+        } catch {
+            print("❌ Fetch failed in userExists: \(error)")
+            throw error
+        }
     }
+                                
     
     private func isValidEmail(_ email: String) -> Bool {
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

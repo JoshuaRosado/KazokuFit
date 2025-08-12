@@ -45,6 +45,8 @@ struct CreateAccountView: View {
                 
                 
                 Button(action: {
+                    
+                    print("Create account button tapped!")
                     guard !firstName.isEmpty,
                           !lastName.isEmpty,
                           !email.isEmpty,
@@ -61,7 +63,7 @@ struct CreateAccountView: View {
                     do {
                         let user = try userManager.createUser(firstName: firstName,
                                                               lastName: lastName,
-                                                              password: password, confirmPassword: confirmPassword,
+                                                              password: password,
                                                               email: email)
                         session.login(user: user)
                         print("✅ Account created and user logged in.")
@@ -72,7 +74,7 @@ struct CreateAccountView: View {
                     Text("Create account")
                 }
                 .buttonStyle(.borderedProminent)
-                confirmPassword
+                
                 
                 
                 Spacer()

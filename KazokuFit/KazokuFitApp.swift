@@ -6,17 +6,24 @@
 //
 import SwiftData
 import SwiftUI
-
 @main
 struct KazokuFitApp: App {
+
+    let container: ModelContainer
+
+    init() {
+        do {
+            container = try ModelContainer(for: User.self)
+        } catch {
+            fatalError("❌ Failed to create ModelContainer: \(error)")
+        }
+    }
+
     var body: some Scene {
         WindowGroup {
-            let container = try! ModelContainer(for: User.self)
             let userManager = UserManager(model: container.mainContext)
             ContentView(userManager: userManager)
-                .modelContainer(for: User.self)
+                .modelContainer(container) 
         }
-        
     }
-        
 }
