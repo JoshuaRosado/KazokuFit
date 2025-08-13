@@ -51,13 +51,13 @@ class UserManager{
     func createUser(firstName: String, lastName: String, password: String, email: String ) throws -> User {
         
         guard !firstName.isEmpty, !lastName.isEmpty, !password.isEmpty, !email.isEmpty else {
-            print("ERROR")
+            print("ERROR empty String")
             throw UserManagerError.emptyFields
            
             
         }
             guard isValidEmail(email) else {
-                print("ERROR")
+                print("ERROR Email")
                 throw UserManagerError.invalidEmailFormat
             }
         
@@ -77,7 +77,8 @@ class UserManager{
         // Try saving the new user's data
         try model.save()
         print(newUser.firstName, newUser.lastName, newUser.email)
-        print("ERROR")
+        print("User \(newUser.firstName)\(newUser.lastName) was saved")
+        print(model.self)
         
         return newUser
         

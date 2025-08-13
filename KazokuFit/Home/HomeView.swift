@@ -18,13 +18,22 @@ struct HomeView: View {
         ScrollView{
             VStack{
                 HStack{
-                    Text("User's Name")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 28))
-                    Spacer()
-                    
-                    Image(systemName: "circle")
-                    // User's photo
+                    if let user = session.currentUser {
+                        
+                        
+                        Text("User's Name")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 28))
+                        Spacer()
+                        
+                        Image(systemName: "circle")
+                        // User's photo
+                    }
+                    else {
+                        Text("Welcome!")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 24))
+                    }
                 }
                 .padding(25)
                 .padding(.top,40)
@@ -38,13 +47,6 @@ struct HomeView: View {
                 
                 
                 
-                
-                Button("LogIn"){
-                    isLogInViewOpen.toggle()
-                }
-                
-                .foregroundStyle(.white
-                )
                 ZStack{
                     Rectangle(
                         )
