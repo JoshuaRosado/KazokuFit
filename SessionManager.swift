@@ -12,6 +12,12 @@ import SwiftData
 class SessionManager: ObservableObject{
     var currentUser: User? = nil
     
+    var isLoggedIn: Bool {
+        currentUser != nil
+        
+        
+    }
+    
     func login(user: User) {
             self.currentUser = user
         }

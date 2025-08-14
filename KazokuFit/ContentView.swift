@@ -10,23 +10,27 @@ import SwiftUI
 
 struct ContentView: View {
     let userManager : UserManager
-    @State private var session = SessionManager()
+    @StateObject private var session = SessionManager()
     
     
     var body: some View {
-        OpeningView(userManager: userManager, session: session)
+        Group{
+            if session.isLoggedIn{
+                HomeView(userManager: userManager, session: session)
+            } else{
+                
+                OpeningView(userManager: userManager, session: session)
+            }
+        }
+        
+        
     }
-}
-
-
-
-#Preview {
-
-        let dummyModelContext = try! ModelContainer(for: User.self).mainContext
-        
-        let userManager = UserManager(model: dummyModelContext)
- 
-        
-     return ContentView(userManager: userManager)
+    
     
 }
+    
+    #Preview {
+        let dummyModelContext = try! ModelContainer(for: User.self).mainContext
+        let userManager = UserManager(model: dummyModelContext)
+        return ContentView(userManager: userManager)
+    }

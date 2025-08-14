@@ -18,7 +18,7 @@ struct HomeView: View {
         ScrollView{
             VStack{
                 HStack{
-                    if let user = session.currentUser {
+                    if session.currentUser != nil {
                         
                         
                         Text("User's Name")
