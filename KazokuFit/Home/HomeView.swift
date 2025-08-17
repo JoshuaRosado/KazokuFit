@@ -21,9 +21,9 @@ struct HomeView: View {
                     if session.currentUser != nil {
                         
                         
-                        Text("User's Name")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 28))
+//                        Text("User's Name")
+//                            .foregroundStyle(.white)
+//                            .font(.system(size: 28))
                         Spacer()
                         
                         Image(systemName: "circle")
