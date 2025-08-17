@@ -21,9 +21,9 @@ struct HomeView: View {
                     if session.currentUser != nil {
                         
                         
-//                        Text("User's Name")
-//                            .foregroundStyle(.white)
-//                            .font(.system(size: 28))
+                        Text(session.currentUser?.firstName ?? "User")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 28))
                         Spacer()
                         
                         Image(systemName: "circle")
@@ -52,7 +52,7 @@ struct HomeView: View {
                         )
                     .fill(.ultraThinMaterial)
                     .background(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
-                    .frame(width: 400, height: 70)
+                    .frame(maxWidth: .infinity, maxHeight: 70)
                         
                     
                     
