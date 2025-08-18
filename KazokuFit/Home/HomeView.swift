@@ -24,15 +24,15 @@ struct HomeView: View {
                         Text(session.currentUser?.firstName ?? "User")
                             .foregroundStyle(.white)
                             .font(.system(size: 28))
-                        Spacer()
-                        
-                        Image(systemName: "circle")
-                        // User's photo
+//                        Spacer()
+//                        
+//                        Image(systemName: "circle")
+//                        // User's photo
                     }
                     else {
-                        Text("Welcome!")
+                        Text("Welcome")
                             .foregroundStyle(.white)
-                            .font(.system(size: 24))
+                            .font(.system(size: 20))
                     }
                 }
                 .padding(25)
