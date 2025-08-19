@@ -23,7 +23,10 @@ struct HomeView: View {
                     Text(session.currentUser?.firstName ?? "User")
                         .foregroundStyle(.white)
                         .font(.system(size: 28))
-
+//                        Spacer()
+//
+//                        Image(systemName: "circle")
+//                        // User's photo
                 }
                 else {
                     Text("Welcome")
@@ -65,7 +68,7 @@ struct HomeView: View {
                 
                 
                 
-                .frame(minWidth: 400, minHeight: 75)
+                .frame(minWidth: 400, minHeight: 100)
                 .foregroundStyle(.white)
                 
             }
@@ -97,7 +100,7 @@ struct HomeView: View {
                 .frame(width: 300, height: 300)
                 
             }
-            .frame(height: 800)
+            .frame(height: 600)
             .background(.white)
 //            .padding(.bottom)
             
