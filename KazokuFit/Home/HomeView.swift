@@ -23,20 +23,17 @@ struct HomeView: View {
                     Text(session.currentUser?.firstName ?? "User")
                         .foregroundStyle(.white)
                         .font(.system(size: 28))
-//                        Spacer()
-//
-//                        Image(systemName: "circle")
-//                        // User's photo
+
                 }
                 else {
                     Text("Welcome")
                         .foregroundStyle(.white)
                         .font(.system(size: 20))
+                        .padding(.top)
                 }
             }
-            .frame(maxHeight: 600)
-            .padding(25)
-            .padding(.top,40)
+            .frame(minHeight: 125)
+
             VStack{
                 
                 VStack{
@@ -44,39 +41,34 @@ struct HomeView: View {
                     Image("gymImage")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 405, height: 210)
+                        .frame(width: 402, height: 210)
                         .clipped()
-                        
+                        .padding(.bottom)
                     
-                    ZStack{
-                        Rectangle(
-                        )
-                        .fill(.ultraThinMaterial)
-                        .background(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
-                        .frame(maxWidth: .infinity, maxHeight: 70)
-                        
-                        
-                        
-                        Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
-                            isConfirmationDialogVisible.toggle()
-                            //
-                        }
-                        .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
-                            Button("Check In"){
-                                withAnimation{
-                                    isUserCheckedIn.toggle()
-                                }
-                                
-                            }
-                            Button("Cancel", role:.cancel){}
-                        }
+                    Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
+                        isConfirmationDialogVisible.toggle()
+                        //
                     }
-                    
-                    
-                    .frame(minWidth: 400, minHeight: 75)
-                    .foregroundStyle(.white)
-                    .padding(.top, 20)
-                }
+                    .controlSize(.extraLarge)
+                    .buttonBorderShape(.capsule)
+                    .buttonStyle(.borderedProminent)
+                    .foregroundStyle(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
+                    .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
+                        Button("Check In"){
+                            withAnimation{
+                                isUserCheckedIn.toggle()
+                            }
+                            
+                        }
+                        Button("Cancel", role:.cancel){}
+                    }
+                
+                
+                
+                .frame(minWidth: 400, minHeight: 75)
+                .foregroundStyle(.white)
+                
+            }
                
  
                 
@@ -102,11 +94,14 @@ struct HomeView: View {
                 .font(.callout)
                 .foregroundStyle(.black)
 
-                .frame(width: 400, height: 400)
+                .frame(width: 300, height: 300)
                 
             }
-            
+            .frame(height: 800)
             .background(.white)
+//            .padding(.bottom)
+            
+            .border(.yellow)
 
             
         }
