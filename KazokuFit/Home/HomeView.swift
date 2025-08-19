@@ -17,65 +17,66 @@ struct HomeView: View {
     var body: some View {
         ScrollView{
             VStack{
-                HStack{
-                    if session.currentUser != nil {
-                        
-                        
-                        Text(session.currentUser?.firstName ?? "User")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 28))
+                if session.currentUser != nil {
+                    
+                    
+                    Text(session.currentUser?.firstName ?? "User")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 28))
 //                        Spacer()
-//                        
+//
 //                        Image(systemName: "circle")
 //                        // User's photo
-                    }
-                    else {
-                        Text("Welcome")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 20))
-                    }
                 }
-                .padding(25)
-                .padding(.top,40)
+                else {
+                    Text("Welcome")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 20))
+                }
+            }
+            .frame(maxHeight: 600)
+            .padding(25)
+            .padding(.top,40)
+            VStack{
                 
-                Image("gymImage")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 400, height: 200)
-                    .clipped()
-                    .padding(.vertical, 25)
-                
-                
-                
-                ZStack{
-                    Rectangle(
-                        )
-                    .fill(.ultraThinMaterial)
-                    .background(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
-                    .frame(maxWidth: .infinity, maxHeight: 70)
+                VStack{
+                    
+                    Image("gymImage")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 405, height: 210)
+                        .clipped()
                         
                     
-                    
-                    Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
-                        isConfirmationDialogVisible.toggle()
-//
-                    }
-                    .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
-                        Button("Check In"){
-                            withAnimation{
-                                isUserCheckedIn.toggle()
-                            }
-                            
+                    ZStack{
+                        Rectangle(
+                        )
+                        .fill(.ultraThinMaterial)
+                        .background(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
+                        .frame(maxWidth: .infinity, maxHeight: 70)
+                        
+                        
+                        
+                        Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
+                            isConfirmationDialogVisible.toggle()
+                            //
                         }
-                        Button("Cancel", role:.cancel){}
+                        .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
+                            Button("Check In"){
+                                withAnimation{
+                                    isUserCheckedIn.toggle()
+                                }
+                                
+                            }
+                            Button("Cancel", role:.cancel){}
+                        }
                     }
+                    
+                    
+                    .frame(minWidth: 400, minHeight: 75)
+                    .foregroundStyle(.white)
+                    .padding(.top, 20)
                 }
-                
-                
-                .frame(minWidth: 400, minHeight: 75)
-                .foregroundStyle(.white)
-                .padding(.top, 60)
-
                
  
                 
@@ -101,16 +102,26 @@ struct HomeView: View {
                 .font(.callout)
                 .foregroundStyle(.black)
 
-                .frame(width: 400, height: 300)
+                .frame(width: 400, height: 400)
                 
             }
-            .padding(.top,10)
+            
+            .background(.white)
+
             
         }
         
-        .background(Color("darkBlue"))
+//        .background(Color("darkBlue"))
+        .background(
+                    LinearGradient(
+                        colors: [Color("darkBlue") , .coral], // Array of colors for the gradient
+                        startPoint: .topLeading,   // Starting point of the gradient
+                        endPoint: .bottomTrailing  // Ending point of the gradient
+                    )
+                 
+                )
 
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
         
         .sheet(isPresented: $isLogInViewOpen){
             LogInView(userManager: userManager, session: session)
