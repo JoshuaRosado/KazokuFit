@@ -102,7 +102,7 @@ struct HomeView: View {
             }
             .frame(height: 600)
             .background(.white)
-//            .padding(.bottom)
+            .padding(.bottom)
             
             .border(.yellow)
 
