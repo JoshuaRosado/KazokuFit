@@ -56,11 +56,11 @@ struct HomeView: View {
                             
                         }
                         .mask(LinearGradient(gradient: Gradient(stops: [
-                            .init(color: .black, location: 0.2),
+                            .init(color: .black, location: 0.5),
                             .init(color: .clear, location: 1),
                             .init(color: .black, location: 0),
                             .init(color: .clear, location: 1)
-                        ]), startPoint: .top, endPoint: .bottom))
+                        ]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         
                         
                         VStack{
@@ -136,8 +136,8 @@ struct HomeView: View {
   
         .background(
             LinearGradient(
-                colors: [Color("darkBlue") , .white], // Array of colors for the gradient
-                startPoint: .topLeading,   // Starting point of the gradient
+                colors: [Color("coral") , .white], // Array of colors for the gradient
+                startPoint: .top,   // Starting point of the gradient
                 endPoint: .bottomTrailing  // Ending point of the gradient
             )
             
