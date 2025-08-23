@@ -23,109 +23,133 @@ struct HomeView: View {
                     Text(session.currentUser?.firstName ?? "User")
                         .foregroundStyle(.white)
                         .font(.system(size: 28))
-//                        Spacer()
-//
-//                        Image(systemName: "circle")
-//                        // User's photo
+                    //                        Spacer()
+                    //
+                    //                        Image(systemName: "circle")
+                    //                        // User's photo
                 }
                 else {
                     Text("Welcome")
                         .foregroundStyle(.white)
                         .font(.system(size: 20))
-                        .padding(.top)
+                        .padding()
+                    
                 }
             }
-            .frame(minHeight: 125)
+            .frame(maxWidth: .infinity, minHeight: 120, alignment: .bottomLeading)
 
+            .padding(.leading)
+            .padding(.top,30)
+            
             VStack{
-                
-                VStack{
+                ZStack{
                     
-                    Image("gymImage")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 402, height: 210)
-                        .clipped()
-                        .padding(.bottom)
                     
-                    Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
-                        isConfirmationDialogVisible.toggle()
-                        //
-                    }
-                    .controlSize(.extraLarge)
-                    .buttonBorderShape(.capsule)
-                    .buttonStyle(.borderedProminent)
-                    .foregroundStyle(isUserCheckedIn ? .green.opacity(0.3) : .red.opacity(0.3))
-                    .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
-                        Button("Check In"){
-                            withAnimation{
-                                isUserCheckedIn.toggle()
+                    
+                    
+                    VStack{
+                        VStack{
+                            Image("gymImage")
+                                .resizable()
+                                .scaledToFill()
+                                .clipped()
+                            
+                        }
+                        .mask(LinearGradient(gradient: Gradient(stops: [
+                            .init(color: .black, location: 0.2),
+                            .init(color: .clear, location: 1),
+                            .init(color: .black, location: 0),
+                            .init(color: .clear, location: 1)
+                        ]), startPoint: .top, endPoint: .bottom))
+                        
+                        
+                        VStack{
+                            Button(isUserCheckedIn ? "Enjoy your workout": "Check In"){
+                                isConfirmationDialogVisible.toggle()
+                                //
+                            }
+                            .controlSize(.extraLarge)
+                            .buttonBorderShape(.capsule)
+                            .buttonStyle(.bordered)
+                            .tint((isUserCheckedIn ? .green.opacity(0.8) : .red))
+//                            .foregroundStyle(isUserCheckedIn ? .green.opacity(0.8) : .red)
+                            .confirmationDialog("Check In", isPresented: $isConfirmationDialogVisible){
+                                Button("Check In"){
+                                    withAnimation{
+                                        isUserCheckedIn.toggle()
+                                    }
+                                    
+                                }
+                                
+                                
+                                Button("Cancel", role:.cancel){}
+                            }
+                            
+                            
+                            
+                            
+                            
+                            .frame(minWidth: 400, minHeight: 100)
+                            .foregroundStyle(.white)
+                            
+                        }
+                        
+                        
+                        
+                        
+                        VStack{
+                            HStack{
+                                
+                                
+                                MainButtonSelectionView(subjectSelected: "Weights", isLoginViewOpen: isLogInViewOpen)
+                                
+                                
+                                MainButtonSelectionView(subjectSelected: "Calisthenics",isLoginViewOpen: false)
+                            }
+                            
+                            HStack{
+                                MainButtonSelectionView(subjectSelected: "Stretching",isLoginViewOpen: false)
+                                
+                                MainButtonSelectionView(subjectSelected: "What to eat?",isLoginViewOpen: false)
                             }
                             
                         }
-                        Button("Cancel", role:.cancel){}
+                        .buttonStyle(.plain)
+                        .font(.callout)
+                        .foregroundStyle(.black)
+                        
+                        .frame(maxWidth: .infinity, minHeight: 200)
+                        
                     }
-                
-                
-                
-                .frame(minWidth: 400, minHeight: 100)
-                .foregroundStyle(.white)
-                
-            }
-               
- 
-                
-
-                VStack{
-                    HStack{
-                        
-                        
-                        MainButtonSelectionView(subjectSelected: "Weights", isLoginViewOpen: isLogInViewOpen)
-                        
-                        
-                        MainButtonSelectionView(subjectSelected: "Calisthenics",isLoginViewOpen: false)
-                    }
+                    .frame(height: 600)
                     
-                    HStack{
-                        MainButtonSelectionView(subjectSelected: "Stretching",isLoginViewOpen: false)
-                        
-                        MainButtonSelectionView(subjectSelected: "What to eat?",isLoginViewOpen: false)
-                    }
+                    //            .background(.white)
+                    
+                    
                     
                 }
-                .buttonStyle(.plain)
-                .font(.callout)
-                .foregroundStyle(.black)
-
-                .frame(width: 300, height: 300)
                 
             }
-            .frame(height: 600)
-            .background(.white)
-            .padding(.bottom)
-            
-            .border(.yellow)
-
             
         }
         
-//        .background(Color("darkBlue"))
+  
         .background(
-                    LinearGradient(
-                        colors: [Color("darkBlue") , .coral], // Array of colors for the gradient
-                        startPoint: .topLeading,   // Starting point of the gradient
-                        endPoint: .bottomTrailing  // Ending point of the gradient
-                    )
-                 
-                )
-
+            LinearGradient(
+                colors: [Color("darkBlue") , .white], // Array of colors for the gradient
+                startPoint: .topLeading,   // Starting point of the gradient
+                endPoint: .bottomTrailing  // Ending point of the gradient
+            )
+            
+        )
+        
         .edgesIgnoringSafeArea(.all)
         
         .sheet(isPresented: $isLogInViewOpen){
             LogInView(userManager: userManager, session: session)
         }
     }
-        
+    
 }
 
 #Preview {
