@@ -118,9 +118,10 @@ struct HomeView: View {
                         .font(.callout)
                         .foregroundStyle(.black)
                         
-                        .frame(maxWidth: .infinity, minHeight: 200)
+                        .frame(maxWidth: 350, minHeight: 350)
                         
                     }
+                    
                     .frame(height: 600)
                     
                     //            .background(.white)
@@ -130,6 +131,7 @@ struct HomeView: View {
                 }
                 
             }
+            
             
         }
         

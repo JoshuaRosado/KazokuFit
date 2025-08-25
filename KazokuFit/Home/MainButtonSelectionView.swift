@@ -12,8 +12,9 @@ struct MainButtonSelectionView: View {
     @State var isLoginViewOpen: Bool?
     var body: some View {
             ZStack{
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color("darkBlue"))
+                Circle()
+                    .fill(.thinMaterial)
+                    
                     .shadow(color: Color(.gray).opacity(0.2) ,radius: 2, x: 0, y: -2)
                     
   
@@ -21,11 +22,11 @@ struct MainButtonSelectionView: View {
                     isLoginViewOpen?.toggle()
                     
                 }
-                .foregroundStyle(.white)
+                .foregroundStyle(.black)
                 
             
         }
-            .frame(maxWidth: 120 , maxHeight: 80)
+            .frame(maxWidth: 150 , maxHeight: 150)
             .padding(15)
     }
 }
