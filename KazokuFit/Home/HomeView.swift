@@ -40,7 +40,7 @@ struct HomeView: View {
                 Image(systemName: "line.3.horizontal")
                     .font(.title)
             }
-            .frame(maxWidth: .infinity, minHeight: 120, alignment: .bottom)
+            .frame(maxWidth: .infinity, minHeight: 50, alignment: .bottom)
 
             .padding(.horizontal,30)
             .padding(.top,20)
@@ -121,11 +121,11 @@ struct HomeView: View {
                         .font(.callout)
                         .foregroundStyle(.secondary)
                         
-                        .frame(maxWidth: 350, minHeight: 300)
+                        .frame(maxWidth: 325, minHeight: 325)
                         
                     }
                     
-                    .frame(height: 700)
+                    .frame(minHeight: 700)
                     
                     //            .background(.white)
                     
@@ -135,7 +135,8 @@ struct HomeView: View {
                 
             }
             
-            .frame(maxWidth:.infinity)
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            
             .background(.white)
             
             
@@ -144,14 +145,14 @@ struct HomeView: View {
   
         .background(
             LinearGradient(
-                colors: [Color("coral") , .white], // Array of colors for the gradient
-                startPoint: .top,   // Starting point of the gradient
-                endPoint: .bottomTrailing  // Ending point of the gradient
+                colors: [Color("coral") ,Color("darkBlue")],
+                startPoint: .leading,
+                endPoint: .trailing
             )
             
         )
         
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.bottom)
         
         .sheet(isPresented: $isLogInViewOpen){
             LogInView(userManager: userManager, session: session)
