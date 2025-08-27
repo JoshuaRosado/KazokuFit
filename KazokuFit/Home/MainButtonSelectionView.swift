@@ -22,7 +22,7 @@ struct MainButtonSelectionView: View {
                     isLoginViewOpen?.toggle()
                     
                 }
-                .foregroundStyle(.black)
+                
                 
             
         }

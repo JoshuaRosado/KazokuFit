@@ -16,7 +16,7 @@ struct HomeView: View {
     @State private var isUserCheckedIn = false
     var body: some View {
         ScrollView{
-            VStack{
+            HStack{
                 if session.currentUser != nil {
                     
                     
@@ -35,32 +35,35 @@ struct HomeView: View {
                         .padding()
                     
                 }
+                Spacer()
+                
+                Image(systemName: "line.3.horizontal")
+                    .font(.title)
             }
-            .frame(maxWidth: .infinity, minHeight: 120, alignment: .bottomLeading)
+            .frame(maxWidth: .infinity, minHeight: 120, alignment: .bottom)
 
-            .padding(.leading)
-            .padding(.top,30)
+            .padding(.horizontal,30)
+            .padding(.top,20)
+            
+           
             
             VStack{
                 ZStack{
-                    
-                    
-                    
-                    
                     VStack{
                         VStack{
                             Image("gymImage")
                                 .resizable()
                                 .scaledToFill()
                                 .clipped()
+                                
                             
                         }
                         .mask(LinearGradient(gradient: Gradient(stops: [
-                            .init(color: .black, location: 0.5),
+                            .init(color: .black, location: 0.6),
                             .init(color: .clear, location: 1),
-                            .init(color: .black, location: 0),
+                            .init(color: .black, location: 1),
                             .init(color: .clear, location: 1)
-                        ]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        ]), startPoint: .top, endPoint: .bottom))
                         
                         
                         VStack{
@@ -90,7 +93,7 @@ struct HomeView: View {
                             
                             
                             .frame(minWidth: 400, minHeight: 100)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.secondary)
                             
                         }
                         
@@ -116,13 +119,13 @@ struct HomeView: View {
                         }
                         .buttonStyle(.plain)
                         .font(.callout)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.secondary)
                         
-                        .frame(maxWidth: 350, minHeight: 350)
+                        .frame(maxWidth: 350, minHeight: 300)
                         
                     }
                     
-                    .frame(height: 600)
+                    .frame(height: 700)
                     
                     //            .background(.white)
                     
@@ -131,6 +134,9 @@ struct HomeView: View {
                 }
                 
             }
+            
+            .frame(maxWidth:.infinity)
+            .background(.white)
             
             
         }
