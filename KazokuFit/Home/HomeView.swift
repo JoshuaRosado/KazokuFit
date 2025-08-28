@@ -35,7 +35,7 @@ struct HomeView: View {
                         .padding()
                     
                 }
-                Spacer()
+            
                 
                 Image(systemName: "line.3.horizontal")
                     .font(.title)
@@ -51,10 +51,7 @@ struct HomeView: View {
             )
             
             .edgesIgnoringSafeArea(.bottom)
-            
-
-            
-            .padding(.top,20)
+    
             
            
             
