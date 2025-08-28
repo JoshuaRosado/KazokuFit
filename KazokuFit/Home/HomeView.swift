@@ -40,14 +40,25 @@ struct HomeView: View {
                 Image(systemName: "line.3.horizontal")
                     .font(.title)
             }
-            .frame(maxWidth: .infinity, minHeight: 50, alignment: .bottom)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .background(
+                LinearGradient(
+                    colors: [Color("coral") ,Color("darkBlue")],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+                
+            )
+            
+            .edgesIgnoringSafeArea(.bottom)
+            
 
-            .padding(.horizontal,30)
+            
             .padding(.top,20)
             
            
             
-            VStack{
+            LazyVStack{
                 ZStack{
                     VStack{
                         VStack{
@@ -121,11 +132,11 @@ struct HomeView: View {
                         .font(.callout)
                         .foregroundStyle(.secondary)
                         
-                        .frame(maxWidth: 325, minHeight: 325)
+                        .frame(maxWidth: 300, minHeight: 300)
                         
                     }
                     
-                    .frame(minHeight: 700)
+//                    .frame(minHeight: 700)
                     
                     //            .background(.white)
                     
@@ -135,7 +146,7 @@ struct HomeView: View {
                 
             }
             
-            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .frame(maxWidth:.infinity )
             
             .background(.white)
             
@@ -143,16 +154,6 @@ struct HomeView: View {
         }
         
   
-        .background(
-            LinearGradient(
-                colors: [Color("coral") ,Color("darkBlue")],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-            
-        )
-        
-        .edgesIgnoringSafeArea(.bottom)
         
         .sheet(isPresented: $isLogInViewOpen){
             LogInView(userManager: userManager, session: session)

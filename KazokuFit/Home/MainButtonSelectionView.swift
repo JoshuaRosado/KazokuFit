@@ -16,6 +16,8 @@ struct MainButtonSelectionView: View {
                     .fill(.thinMaterial)
                     
                     .shadow(color: Color(.gray).opacity(0.2) ,radius: 2, x: 0, y: -2)
+        
+                
                     
   
                 Button(subjectSelected){
@@ -26,8 +28,8 @@ struct MainButtonSelectionView: View {
                 
             
         }
-            .frame(maxWidth: 150 , maxHeight: 150)
-            .padding(15)
+            .frame(maxWidth: 175 , maxHeight: 175)
+            .padding()
     }
 }
 
