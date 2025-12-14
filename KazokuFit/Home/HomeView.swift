@@ -35,11 +35,13 @@ struct HomeView: View {
                         .padding()
                     
                 }
-            
+                Spacer()
                 
                 Image(systemName: "line.3.horizontal")
                     .font(.title)
+                    .padding()
             }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .background(
                 LinearGradient(

@@ -27,17 +27,22 @@ struct LogInView: View {
             
             VStack(alignment: .center){
                 Spacer()
-                Form{
+                VStack{
                     
-                    TextField("username", text: $email)
-                    SecureField("password", text: $password)
+
+                    AuthTextField(title: "email" , systemImage: "envelope", text: $email)
+                        .background(.secondary)
+
                     
+                    AuthTextField(title: "password", systemImage: "lock", text: $password, isSecure: true)
                     
                 }
+
                 .scrollContentBackground(.hidden)
                 .foregroundStyle(.black)
                 .frame(width: 350, height: 200)
                 .padding()
+                
                 
                 
                 Button("Log In"){
